@@ -1,0 +1,26 @@
+{
+  "name": "skin-tone",
+  "version": "1.0.0",
+  "description": "change the skin tone of an emoji",
+  "main": "index.js",
+  "scripts": {
+    "test": "console.log(\"skin-tone test\")"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juul03/blok-tech.git"
+  },
+  "keywords": [
+    "skintone",
+    "emojis"
+  ],
+  "author": "Sindre Sorhus",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Juul03/blok-tech/issues"
+  },
+  "homepage": "https://github.com/Juul03/blok-tech#readme",
+  "dependencies": {
+    "camelcase": "^7.0.1"
+  }
+}
