@@ -23,6 +23,8 @@ ul {
     --tertiary-color:#fff;
 
     --standard-radius:15px;
+    --standard-radius-input:5px;
+    --standard-margin-sections:30px;
 
 }
 
@@ -33,13 +35,20 @@ body {
     flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
     color:var(--brand-color);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1, h2 {
     font-size:2.3rem;
+    text-align:center;
+    font-weight: bold;
+}
+
+p {
+    font-size:1.75rem;
+    font-weight: normal;
 }
 
 header {
@@ -67,6 +76,15 @@ header a:first-of-type img {
 
 header a:last-of-type img {
     height:65%;
+}
+
+/* MAIN */
+main {
+    padding:1.8rem;
+}
+
+main > p:first-of-type {
+    text-align:center;
 }
 
 

@@ -10,21 +10,23 @@ app.set('view engine', 'ejs')
 app.set('views', './views')
 
 app.get('/', (req, res) => {
-  res.render('index.ejs')
+  res.render('index')
 })
 
 app.get('/upload', (req, res) => {
-  res.render('upload')
+  res.render('upload', {
+    title: 'upload'
+  })
 })
 
-app.get('/about', (req, res) => {
-  res.send('About')
-})
+// app.get('/about', (req, res) => {
+//   res.send('About')
+// })
 
-app.get('/about/:plant/', (req, res) => {
-  console.log('trying to reach' + plant)
-  res.params.send('hallo' + plant)
-})
+// app.get('/about/:plant/', (req, res) => {
+//   console.log('trying to reach' + plant)
+//   res.params.send('hallo' + plant)
+// })
 
 app.listen(port, () => {
   console.log(`Shaking my booty ${port} times`)

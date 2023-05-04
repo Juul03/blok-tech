@@ -1,0 +1,69 @@
+section {
+    margin-top: var(--standard-margin-sections);
+}
+
+section > p {
+    color:var(--secundary-color);
+    font-weight: bold;
+    font-size:1.8rem;
+}
+
+form label, legend {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color:var(--brand-color);
+    font-size:2.3rem;
+    font-weight: bold;
+}
+
+label {
+    display:block;
+    margin: 1.5rem 0 1.25rem;
+}
+
+fieldset {
+    margin: 1.5rem 0 1.25rem;
+    border:none;
+}
+
+fieldset div {
+    display:flex;
+}
+
+fieldset div input {
+    margin-right:1rem;
+}
+
+/* Code to adjust input type file from Chris Coyier https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ */
+input[type=file]::-webkit-file-upload-button {
+    visibility:hidden;
+}
+
+input[type=file]::before {
+    content: '+';
+    display: inline-block;
+    color:var(--secundary-color);
+    background: var(--secundary-color-transparent);
+
+    border-radius: var(--standard-radius) var(--standard-radius);
+    padding: 5rem;
+    outline: none;
+    white-space: nowrap;
+    /* -webkit-user-select: none; */
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+input[type=text],
+input[type=number] {
+    height:2.2rem;
+    width:14rem;
+    max-width:55vw;
+    border:none;
+    border-radius:var(--standard-radius-input);
+}
+
+input[type=number] {
+    width: 20vw;
+}

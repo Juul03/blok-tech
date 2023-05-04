@@ -1,8 +1,79 @@
 <%- include('header.ejs') %>
 
 <main>
-    <h2>Upload</h2>
+    <h2>Upload your plant here!</h2>
+    <p>Fill in all information so we can find a perfect home for the specific environment your plant needs!</p>
+
+    <section>
+        <p>*Required fields</p>
+
+        <form action="" method="get" class="upload-form">
+            <label for="plantpic">Choose images</label>
+            <input type="file" name="plantpic" id="plantpic" accept="image/png, image/jpeg" required >
+
+            <label for="plant-type">Select plant type</label>
+            <input type="text" name="plant-type" id="plant-type" required>
+
+            <label for="plant-height">Height</label>
+            <input type="number" name="plant-height" id="plant-height" required>
+
+            <label for="pot-diameter">Current diameter of the pot</label>
+            <input type="number" name="pot-diameter" id="pot-diameter" required>
+
+            <fieldset>
+                <legend>Needs a repot?</legend>
+            
+                <div>
+                    <input type="radio" name="repot" id="yes" value="yes">
+                    <label for="huey">Yes</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="repot" id="no" value="no">
+                    <label for="huey">No</label>
+                </div>
+            </fieldset>
+
+            
+    
+        
+          </form>
+    </section>
+
+    <!-- <form action="succes.html" method="GET">
+
+        <label for="inspirationphoto">Upload a photo</label>
+        <input type="file" id="inspirationphoto"  accept="image/png, image/jpeg" required>
+
+        <label for="phototitle">Photo Title</label>
+        <input type="text" id="phototitle" required />
+
+        <label for="districts">Choose the district</label>
+        <select id="districts">
+            <option value="somewhere" selected>Unknown</option>
+            <option value="centrum">Centrum</option>
+            <option value="north">North</option>
+            <option value="east">East</option>
+            <option value="west">West</option>
+            <option value="newwest">New-West</option>
+            <option value="south">South</option>
+            <option value="southeast">South-east</option>
+        </select>
+
+        <label for="experience">Add a story (optional)</label>
+        <textarea id="experience">
+            Write about your experience in Amsterdam and how you got inspired. Do you have tips for other people?
+        </textarea>
+
+        <label for="quote">Add a quote (optional)</label>
+        <textarea id="quote">
+            Roses are red, violets are blue... 
+        </textarea>
+        
+    <button>Submit</button>
+        
+    </form> -->
+
 </main>
 
 <%- include('footer.ejs') %>
-
