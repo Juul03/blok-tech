@@ -1,11 +1,68 @@
-body {
-    background-color:black;
+/* Bestandje nog aanpassen naar "general styles" en styles aanmaken foor specifieke pagina/formulierpaginas */
+* {
+    margin:0;
+    padding:0;
 }
 
-h1 {
-    color:red;
+button {
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}
+
+:root {
+    --base-color:#F9F1E7;
+    --brand-color:#54AE78;
+    --secundary-color:#6874E8;
+    --secundary-color-transparent:#6874E815;
+    --tertiary-color:#fff;
+
+    --standard-radius:15px;
+
+}
+
+body {
+    background-color:var(--base-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color:var(--brand-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2 {
+    font-size:2.3rem;
 }
 
 header {
-    background-color:green;
+    background-color:var(--brand-color);
+    height:6.25rem;
+    border-radius: 0 0 var(--standard-radius) var(--standard-radius);
+
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+header button {
+    height:75%;
+    padding:.5rem 1rem;
+}
+
+header button a {
+    width:100%;
+    height:100%;
+}
+
+header button:first-of-type a img {
+    height:100%;
+}
+
+header button:last-of-type a img {
+    height:65%;
+}
+
+footer {
+    background-color:var(--brand-color);
 }
