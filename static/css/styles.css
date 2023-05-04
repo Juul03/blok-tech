@@ -11,6 +11,10 @@ button {
     background-color: inherit;
 }
 
+ul {
+    list-style:none;
+}
+
 :root {
     --base-color:#F9F1E7;
     --brand-color:#54AE78;
@@ -24,6 +28,9 @@ button {
 
 body {
     background-color:var(--base-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,24 +52,57 @@ header {
     justify-content: space-between;
 }
 
-header button {
-    height:75%;
+header a {
+    height:60%;
     padding:.5rem 1rem;
+
+    display:flex;
+    align-items:center;
+    justify-content: center;
 }
 
-header button a {
-    width:100%;
+header a:first-of-type img {
     height:100%;
 }
 
-header button:first-of-type a img {
-    height:100%;
-}
-
-header button:last-of-type a img {
+header a:last-of-type img {
     height:65%;
 }
 
+
+/* FOOTER */
 footer {
     background-color:var(--brand-color);
+    height:6.25rem;
+    border-radius: var(--standard-radius) var(--standard-radius) 0 0;
+
+    margin-top: auto;
+}
+
+footer ul {
+    display:flex;
+    flex-wrap:wrap;
+
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content: center;
+}
+
+footer ul li {
+    height:75%;
+    width:calc(100vw/3);
+}
+
+footer ul li a {
+    height:100%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+footer ul li a img {
+    height:65%;
 }

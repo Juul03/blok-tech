@@ -13,6 +13,10 @@ app.get('/', (req, res) => {
   res.render('index.ejs')
 })
 
+app.get('/upload', (req, res) => {
+  res.render('upload')
+})
+
 app.get('/about', (req, res) => {
   res.send('About')
 })
