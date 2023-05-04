@@ -5,8 +5,12 @@ const port = 3000
 // de static map openbaar maken (middleware)
 app.use(express.static('static'))
 
+// View engine instellen en server laten weten welk mapje deze staat
+app.set('view engine', 'ejs')
+app.set('views', './views')
+
 app.get('/', (req, res) => {
-  res.send('index')
+  res.render('index.ejs')
 })
 
 app.get('/about', (req, res) => {
