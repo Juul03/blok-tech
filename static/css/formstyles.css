@@ -20,6 +20,16 @@ label {
     margin: 1.5rem 0 1.25rem;
 }
 
+.required {
+    content:"*";
+    color:var(--secundary-color);
+}
+
+/* *:required {
+    content:"*";
+    background-color: gold;
+} */
+
 fieldset {
     margin: 1.5rem 0 1.25rem;
     border:none;

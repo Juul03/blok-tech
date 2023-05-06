@@ -21,6 +21,12 @@ app.get('/upload', (req, res) => {
   })
 })
 
+app.get('/succes', (req, res) => {
+  res.render('succes', {
+    title: 'succes'
+  })
+})
+
 // app.get('/about', (req, res) => {
 //   res.send('About')
 // })

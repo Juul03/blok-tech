@@ -8,20 +8,20 @@
         <p>*Required fields</p>
 
         <form action="" method="get" class="upload-form">
-            <label for="plantpic">Choose images</label>
+            <label for="plantpic">Choose images<span class="required">*</span></label>
             <input type="file" name="plantpic" id="plantpic" accept="image/png, image/jpeg" required >
 
-            <label for="plant-type">Select plant type</label>
+            <label for="plant-type">Select plant type<span class="required">*</span></label>
             <input type="text" name="plant-type" id="plant-type" required>
 
-            <label for="plant-height">Height</label>
+            <label for="plant-height">Height<span class="required">*</span></label>
             <input type="number" name="plant-height" id="plant-height" required>
 
-            <label for="pot-diameter">Current diameter of the pot</label>
+            <label for="pot-diameter">Current diameter of the pot<span class="required">*</span></label>
             <input type="number" name="pot-diameter" id="pot-diameter" required>
 
             <fieldset>
-                <legend>Needs a repot?</legend>
+                <legend>Needs a repot?<span class="required">*</span></legend>
             
                 <div>
                     <input type="radio" name="repot" id="yes" value="yes">
@@ -34,13 +34,13 @@
                 </div>
             </fieldset>
 
-            <label for="sunlight-brightness">Sunlight brightness</label>
-            <input type="range" name="sunlight-brightness" id="sunlight-brightness" min="0" max="4">
+            <label for="sunlight-brightness">Sunlight brightness<span class="required">*</span></label>
+            <input type="range" name="sunlight-brightness" id="sunlight-brightness" min="0" max="4" required>
 
-            <label for="water-ammount">Water ammount</label>
-            <input type="range" name="water-ammount" id="water-ammount" min="0" max="4">
+            <label for="water-ammount">Water ammount<span class="required">*</span></label>
+            <input type="range" name="water-ammount" id="water-ammount" min="0" max="4" required>
 
-            <label for="soil-type">Soil-type</label>
+            <label for="soil-type">Soil-type<span class="required">*</span></label>
             <select name="soil-type" id="soil-type" size="4" mulitple>
                 <option value="regular" selected>Regular</option>
                 <option value="perlite">Perlite</option>
@@ -65,7 +65,7 @@
             </fieldset> -->
 
             <fieldset>
-                <legend>Care level</legend>
+                <legend>Care level<span class="required">*</span></legend>
             
                 <div>
                     <input type="radio" name="care-level" id="beginner" value="beginner">
@@ -89,7 +89,7 @@
             </textarea>
 
             <div>
-                <label for="agreement" id="agreement">I agree with the terms and conditions</label>
+                <label for="agreement" id="agreement"><span class="required">*</span>I agree with the terms and conditions</label>
                 <input type="checkbox" name="agreement" id="agreement" required>
             </div>
 
