@@ -75,6 +75,7 @@ input[type=number] {
     height:2.2rem;
     width:14rem;
     max-width:55vw;
+    padding-left:.5rem;
     border:none;
     border-radius:var(--standard-radius-input);
 }
