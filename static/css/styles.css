@@ -97,7 +97,11 @@ footer {
     margin-top: auto;
 }
 
-footer ul {
+footer nav {
+    height:100%;
+}
+
+footer nav ul {
     display:flex;
     flex-wrap:wrap;
 
@@ -108,12 +112,12 @@ footer ul {
     justify-content: center;
 }
 
-footer ul li {
+footer nav ul li {
     height:75%;
     width:calc(100vw/3);
 }
 
-footer ul li a {
+footer nav ul li a {
     height:100%;
 
     display:flex;
@@ -121,6 +125,6 @@ footer ul li a {
     justify-content:center;
 }
 
-footer ul li a img {
+footer nav ul li a img {
     height:65%;
 }
