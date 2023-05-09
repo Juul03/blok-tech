@@ -27,6 +27,31 @@ app.get('/succes', (req, res) => {
   })
 })
 
+// app.get('*', function(req, res) {
+//   res.status(404).render('not-found.ejs', {
+//     title:  '404'
+//   })
+// }
+
+app.get('*', function(req, res) {
+  res.status(404).render('not-found.ejs', {
+    title: '404'
+  });
+});
+
+app.get('/myplant', (req, res) => {
+  res.render('myplant.ejs', {
+    title: 'myplant'
+  })
+})
+
+
+var mascots = [
+  { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
+  { name: 'Tux', organization: "Linux", birth_year: 1996},
+  { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
+];
+
 // app.get('/about', (req, res) => {
 //   res.send('About')
 // })
