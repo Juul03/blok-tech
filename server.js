@@ -39,12 +39,6 @@ app.get('*', function(req, res) {
   });
 });
 
-app.get('/myplant', (req, res) => {
-  res.render('myplant.ejs', {
-    title: 'myplant'
-  })
-})
-
 
 var mascots = [
   { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
