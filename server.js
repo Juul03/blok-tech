@@ -11,7 +11,7 @@ app.set('views', './views')
 
 app.get('/', (req, res) => {
   res.render('index', {
-    title: 'home'
+    title: 'home',
   })
 })
 
@@ -39,12 +39,26 @@ app.get('*', function(req, res) {
   });
 });
 
+// var plants = [
+//   { planttype: 'Spiderplant', height:'25', repot:'yes'},
+//   { planttype: 'Cactus', height:'100', repot:'no'},
+//   { planttype: 'Calathea', height:'14', repot:'no'}
+// ];
 
-var mascots = [
-  { name: 'Sammy', organization: "DigitalOcean", birth_year: 2012},
-  { name: 'Tux', organization: "Linux", birth_year: 1996},
-  { name: 'Moby Dock', organization: "Docker", birth_year: 2013}
-];
+// function plants(req,res) {
+//   res.render('index.ejs', {
+//     data: plants
+//   })
+// }
+
+// DIT TOEVOEGEN AAN DE INDEX --> WERKT ALLEEN NIET
+// <!-- <ul id="plants">
+// <% plants.forEach(function(plants) { %>
+//     <li><%= plants.planttype %></li>
+// <% }) %>
+// </ul> -->
+
+
 
 // app.get('/about', (req, res) => {
 //   res.send('About')
