@@ -9,9 +9,16 @@ app.use(express.static('static'))
 app.set('view engine', 'ejs')
 app.set('views', './views')
 
+var plants = [
+  { planttype: 'Spiderplant', height:'25', repot:'yes'},
+  { planttype: 'Cactus', height:'100', repot:'no'},
+  { planttype: 'Calathea', height:'14', repot:'no'}
+];
+
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'home',
+    allPlants: plants
   })
 })
 
@@ -27,11 +34,12 @@ app.get('/succes', (req, res) => {
   })
 })
 
-// app.get('*', function(req, res) {
-//   res.status(404).render('not-found.ejs', {
-//     title:  '404'
-//   })
-// }
+app.get('/feed/:plantType1', (req, res) => {
+  res.render('plant.ejs', {
+    plantType: req.params.plantType1,
+    title: req.params.plantType1
+  })
+})
 
 app.get('*', function(req, res) {
   res.status(404).render('not-found.ejs', {
@@ -39,11 +47,7 @@ app.get('*', function(req, res) {
   });
 });
 
-// var plants = [
-//   { planttype: 'Spiderplant', height:'25', repot:'yes'},
-//   { planttype: 'Cactus', height:'100', repot:'no'},
-//   { planttype: 'Calathea', height:'14', repot:'no'}
-// ];
+
 
 // function plants(req,res) {
 //   res.render('index.ejs', {
@@ -58,15 +62,8 @@ app.get('*', function(req, res) {
 // <% }) %>
 // </ul> -->
 
-
-
 // app.get('/about', (req, res) => {
 //   res.send('About')
-// })
-
-// app.get('/about/:plant/', (req, res) => {
-//   console.log('trying to reach' + plant)
-//   res.params.send('hallo' + plant)
 // })
 
 app.listen(port, () => {

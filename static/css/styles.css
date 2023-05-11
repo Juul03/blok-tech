@@ -87,6 +87,11 @@ main > p:first-of-type {
     text-align:center;
 }
 
+main ul li {
+    font-size:1rem;
+    color:var(--secundary-color);
+}
+
 
 /* FOOTER */
 footer {
