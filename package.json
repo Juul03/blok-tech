@@ -4,7 +4,8 @@
   "description": "This is a test to make my own package",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "test": "nodemon index.js",
+    "compile": "sass static/css/styles.scss static/css/styles.css"
   },
   "author": "Julia Hoek",
   "license": "MIT",
