@@ -59,41 +59,41 @@ header {
     display:flex;
     align-items:center;
     justify-content: space-between;
+
+    a {
+        height:60%;
+        padding:.5rem 1rem;
+    
+        display:flex;
+        align-items:center;
+        justify-content: center;
+    }
+
+    a:first-of-type img {
+        height:100%;
+    }
+
+    a:last-of-type img {
+        height:65%;
+    }
 }
 
-header a {
-    height:60%;
-    padding:.5rem 1rem;
 
-    display:flex;
-    align-items:center;
-    justify-content: center;
-}
-
-header a:first-of-type img {
-    height:100%;
-}
-
-header a:last-of-type img {
-    height:65%;
-}
-
-/* MAIN */
 main {
     padding:1.8rem;
+
+    p:first-of-type {
+        text-align:center;
+    }
+
+    ul li {
+        font-size:1rem;
+        color:var(--secundary-color);
+    }
+
 }
 
-main > p:first-of-type {
-    text-align:center;
-}
 
-main ul li {
-    font-size:1rem;
-    color:var(--secundary-color);
-}
-
-
-/* FOOTER */
 footer {
     background-color:var(--brand-color);
     height:6.25rem;
@@ -101,36 +101,36 @@ footer {
 
     position:sticky;
     bottom:0;
-}
 
-footer nav {
-    height:100%;
-}
+    nav {
+        height:100%;
 
-footer nav ul {
-    display:flex;
-    flex-wrap:wrap;
+        ul {
+            display:flex;
+            flex-wrap:wrap;
+        
+            height:100%;
+        
+            display:flex;
+            align-items:center;
+            justify-content: center;
 
-    height:100%;
+            li {
+                height:75%;
+                width:calc(100vw/3);
 
-    display:flex;
-    align-items:center;
-    justify-content: center;
-}
+                a {
+                    height:100%;
 
-footer nav ul li {
-    height:75%;
-    width:calc(100vw/3);
-}
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
 
-footer nav ul li a {
-    height:100%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-footer nav ul li a img {
-    height:65%;
+                    img {
+                        height:65%;
+                    }
+                }
+            }
+        }
+    }
 }

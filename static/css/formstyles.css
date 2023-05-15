@@ -87,6 +87,7 @@ input[type=number] {
 /* Code to adjust input type range by Daniel Stern https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/ */
 /* First, reset all basic styling */
 input[type=range] {
+    appearance: none;
     -webkit-appearance: none;
     width:90vw;
 }
