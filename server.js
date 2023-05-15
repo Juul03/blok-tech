@@ -1,13 +1,32 @@
-const express = require("express")
-const app = express()
-const port = 3000
+const express = require("express");
+const app = express();
+const port = 3000;
 
 // de static map openbaar maken (middleware)
-app.use(express.static('static'))
+app.use(express.static('static'));
 
 // View engine instellen en server laten weten welk mapje deze staat
-app.set('view engine', 'ejs')
-app.set('views', './views')
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
+// Notification API
+// const agreeButton = document.querySelector('#permissionbutton');
+// console.log(agreeButton);
+
+// agreeButton.addEventListener("click", () => {
+//   let promise = Notification.requestPermission();
+//   console.log(promise);
+// });
+
+// if (window.Notification && Notificaiton.permission !== "denied") {
+//   Notification.requestPermission((status) => {
+//     let notification = new Notification('Title', {
+//       body: 'Test tekst'
+//     })
+//   })
+// }
+
+
 
 var plants = [
   { planttype: 'Spiderplant', height:'25', repot:'yes'},
