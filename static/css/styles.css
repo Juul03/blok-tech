@@ -43,9 +43,21 @@ h1, h2 {
   font-weight: bold;
 }
 
-p {
+p, q {
   font-size: 1.75rem;
   font-weight: normal;
+}
+
+q {
+  display: block;
+  font-style: italic;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--base-color);
+  background-color: var(--secundary-color);
+  border-radius: var(--standard-radius);
+  padding: 1rem;
+  margin: 1.5rem 0.2rem;
+  text-align: center;
 }
 
 header {
@@ -112,5 +124,3 @@ footer nav ul li a {
 footer nav ul li a img {
   height: 65%;
 }
-
-/*# sourceMappingURL=styles.css.map */

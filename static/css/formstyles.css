@@ -103,10 +103,12 @@ form > button {
 input[type=file] {
   width: 50%;
 }
-input[type=file] ::-webkit-file-upload-button {
+
+input[type=file]::-webkit-file-upload-button {
   visibility: hidden;
 }
-input[type=file] ::before {
+
+input[type=file]::before {
   content: "+";
   display: inline-block;
   color: var(--secundary-color);

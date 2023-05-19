@@ -21,7 +21,9 @@
         
     </footer>
 
-    <script src="/js/script.js"></script>
+    <% if (title == 'home') { %>
+        <script src="/js/script.js"></script>
+    <% } %>
 
     <% if (title == 'upload') { %>
         <script src="/js/formscript.js"></script>

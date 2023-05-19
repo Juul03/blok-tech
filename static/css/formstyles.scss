@@ -120,29 +120,29 @@ form {
 /* Code to adjust input type file from Chris Coyier https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ */
 input[type=file] {
     width:50%;
+}
 
-    ::-webkit-file-upload-button {
-        visibility:hidden;
-    }
+input[type=file]::-webkit-file-upload-button {
+    visibility:hidden;
+}
 
-    ::before {
-        content: '+';
-        display: inline-block;
-        color:var(--secundary-color);
-        background: var(--secundary-color-transparent);
-    
-        border-radius: var(--standard-radius);
-        padding: 5rem;
-        outline: none;
-        white-space: nowrap;
-        /* -webkit-user-select: none; */
-        cursor: pointer;
-    
-        font-weight: bold;
-        font-size: 3rem;
-    
-        max-width:45%;
-    }
+input[type=file]::before {
+    content: '+';
+    display: inline-block;
+    color:var(--secundary-color);
+    background: var(--secundary-color-transparent);
+
+    border-radius: var(--standard-radius);
+    padding: 5rem;
+    outline: none;
+    white-space: nowrap;
+    /* -webkit-user-select: none; */
+    cursor: pointer;
+
+    font-weight: bold;
+    font-size: 3rem;
+
+    max-width:45%;
 }
 
 input[type=text],
