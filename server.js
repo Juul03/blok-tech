@@ -26,8 +26,6 @@ app.set('views', './views');
 //   })
 // }
 
-
-
 var plants = [
   { planttype: 'Spiderplant', height:'25', repot:'yes'},
   { planttype: 'Cactus', height:'100', repot:'no'},
