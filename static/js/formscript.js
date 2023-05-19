@@ -1,5 +1,6 @@
 console.log('form is active');
 
+// Image preview code by Miguel Nunez https://medium.com/@mignunez/how-to-upload-and-preview-an-image-with-javascript-749b92711b91
 const imgInput = document.querySelector('form > div:first-of-type > input:first-of-type');
 const imgOutput = document.querySelector('form > div:first-of-type > output');
 let plantImages = [];
