@@ -5,6 +5,23 @@ const imgInput = document.querySelector('form > div:first-of-type > input:first-
 const imgOutput = document.querySelector('form > div:first-of-type > output');
 let plantImages = [];
 
+//form input field appear
+const checkboxCustomSoil= document.querySelector('#else')
+const inputfieldCustomSoil = document.querySelector('fieldset input[type=text]');
+
+console.log(checkboxCustomSoil.checked);
+const inputFieldAppear = () => {
+    if(checkboxCustomSoil.checked) {
+        console.log('it is checked');
+        inputfieldCustomSoil.classList.add('active');
+    } else {
+        inputfieldCustomSoil.classList.remove('active');
+    }
+}
+
+checkboxCustomSoil.addEventListener('click', inputFieldAppear);
+
+
 imgInput.addEventListener('change', () => {
     const file = imgInput.files;
     plantImages.push(file[0]);

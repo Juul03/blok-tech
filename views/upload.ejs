@@ -7,21 +7,21 @@
     <section>
         <p>*Required fields</p>
 
-        <form action="" method="get" class="upload-form">
+        <form action="/succes" method="get" class="upload-form">
             <div>
                 <label for="plantpic">Choose images<span class="required">*</span></label>
                 <input type="file" name="plantpic" id="plantpic" accept="image/png, image/jpeg" required >
                 <output></output>
             </div>
 
-            <label for="plant-type">Select plant type<span class="required">*</span></label>
+            <label for="plant-type">Plant type<span class="required">*</span></label>
             <input type="text" name="plant-type" id="plant-type" required>
 
             <label for="plant-height">Height<span class="required">*</span></label>
-            <input type="number" name="plant-height" id="plant-height" required>
+            <input type="number" name="plant-height" id="plant-height" required><span  class="unit-type">cm</span>
 
             <label for="pot-diameter">Current diameter of the pot<span class="required">*</span></label>
-            <input type="number" name="pot-diameter" id="pot-diameter" required>
+            <input type="number" name="pot-diameter" id="pot-diameter" required><span class="unit-type">cm</span>
 
             <fieldset>
                 <legend>Needs a repot?<span class="required">*</span></legend>
@@ -38,34 +38,46 @@
             </fieldset>
 
             <label for="sunlight-brightness">Sunlight brightness<span class="required">*</span></label>
+            <div class="range-images">
+                <img src="../img/icons/shadow.svg" alt="shadow">
+                <img src="../img/icons/halfshadowsun.svg" alt="halfshadowsun">
+                <img src="../img/icons/sun.svg" alt="sun">
+            </div>
             <input type="range" name="sunlight-brightness" id="sunlight-brightness" min="0" max="4" required>
 
             <label for="water-ammount">Water ammount<span class="required">*</span></label>
+            <div class="range-images">
+                <img src="../img/icons/singledrop.svg" alt="not so much water">
+                <img src="../img/icons/doubledrop.svg" alt="a little water">
+                <img src="../img/icons/triodrop.svg" alt="a lot of water">
+            </div>
             <input type="range" name="water-ammount" id="water-ammount" min="0" max="4" required>
 
-            <label for="soil-type">Soil-type<span class="required">*</span></label>
-            <select name="soil-type" id="soil-type" size="4" mulitple>
-                <option value="regular" selected="selected">Regular</option>
-                <option value="perlite">Perlite</option>
-                <option value="succulent">Succulent mix</option>
-                <option value="else">Else...</option>
-                <!-- INPUT TYPE CHECKBOX NOG EVEN NAAR KIJKEN -->
-                <!-- If "Else" is selected, then show another field where people can type in their mixture -->
-            </select>
+            <fieldset>
+                <legend>Soil-type</legend>
+            
+                <div>
+                  <input type="checkbox" id="regular" name="regular" checked>
+                  <label for="scales">Regular</label>
+                </div>
+            
+                <div>
+                  <input type="checkbox" id="perlite" name="perlite">
+                  <label for="perlite">Perlite</label>
+                </div>
 
-            <!-- <fieldset>
-                <legend>Choose your monster's features:</legend>
-            
                 <div>
-                  <input type="checkbox" id="scales" name="scales" checked>
-                  <label for="scales">Scales</label>
+                    <input type="checkbox" id="succulent mix" name="succulent mix">
+                    <label for="succulent mix">Succulent mix</label>
                 </div>
-            
+
                 <div>
-                  <input type="checkbox" id="horns" name="horns">
-                  <label for="horns">Horns</label>
+                    <input type="checkbox" id="else" name="else">
+                    <label for="else">Else</label>
                 </div>
-            </fieldset> -->
+
+                <input type="text" placeholder="Which soil do you use?">
+            </fieldset>
 
             <fieldset>
                 <legend>Care level<span class="required">*</span></legend>
@@ -87,9 +99,7 @@
             </fieldset>
 
             <label for="additional-info">Additional info</label>
-            <textarea id="additional-info">
-                Add more info or specialties about your plant 
-            </textarea>
+            <textarea id="additional-info" placeholder="Add more info or specialties about your plant "></textarea>
 
             <div>
                 <label for="agreement" id="agreement"><span class="required">*</span>I agree with the terms and conditions</label>

@@ -59,6 +59,14 @@ output .span--hidden {
   visibility: hidden;
 }
 
+fieldset input[type=text] {
+  display: none;
+}
+
+fieldset input[type=text].active {
+  display: block;
+}
+
 form label, form legend {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--brand-color);
@@ -99,6 +107,26 @@ form > button {
   color: var(--secundary-color);
 }
 
+.unit-type {
+  color: var(--secundary-color);
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.range-images {
+  width: 90vw;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.range-images img {
+  max-width: 2.5rem;
+  max-height: 2.5rem;
+}
+
 /* Code to adjust input type file from Chris Coyier https://css-tricks.com/snippets/css/custom-file-input-styling-webkitblink/ */
 input[type=file] {
   width: 50%;
@@ -132,6 +160,11 @@ input[type=number] {
   padding-left: 0.5rem;
   border: none;
   border-radius: var(--standard-radius-input);
+}
+
+::placeholder {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--brand-color);
 }
 
 input[type=number] {
