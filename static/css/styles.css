@@ -43,6 +43,13 @@ h1, h2 {
   font-weight: bold;
 }
 
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1.5rem 0 1rem;
+  color: var(--secundary-color);
+}
+
 p, q {
   font-size: 1.75rem;
   font-weight: normal;
@@ -52,11 +59,11 @@ q {
   display: block;
   font-style: italic;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: var(--base-color);
-  background-color: var(--secundary-color);
+  color: rgba(104, 116, 232, 0.5019607843);
+  background-color: var(--secundary-color-transparent);
   border-radius: var(--standard-radius);
   padding: 1rem;
-  margin: 1.5rem 0.2rem;
+  margin: 2rem 0.2rem;
   text-align: center;
 }
 
@@ -91,6 +98,49 @@ main p:first-of-type {
 main ul li {
   font-size: 1rem;
   color: var(--secundary-color);
+}
+
+#plantinfocard {
+  background-color: white;
+  border-radius: var(--standard-radius);
+  padding: 1rem;
+  width: 45%;
+  box-shadow: 0.5rem 0.5rem 1rem var(--secundary-color-transparent);
+  margin: auto;
+}
+#plantinfocard li {
+  font-size: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+#plantinfocard li img {
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+  margin-right: 0.5rem;
+}
+#plantinfocard li:first-of-type {
+  font-weight: bold;
+}
+#plantinfocard :not(li:first-of-type) {
+  color: var(--brand-color);
+}
+
+section > a {
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  width: 85vw;
+  min-height: 2.8rem;
+  padding-top: 0.5rem;
+  margin: 2rem auto;
+  background: var(--brand-color);
+  color: var(--base-color);
+  border-radius: var(--standard-radius-input);
+  font-size: 1.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0.25rem 0.25rem 1rem rgba(84, 174, 120, 0.3137254902);
 }
 
 footer {
