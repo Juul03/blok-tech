@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 3300;
 
 // de static map openbaar maken (middleware)
 app.use(express.static('static'));
