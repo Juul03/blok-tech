@@ -19,10 +19,15 @@ The application is build for mobile screens and looks the best on a 430px wide s
 
 ## Installation guide
 ### Node
-Install node.js or check if it is installed already by running the following code:
+Install node.js
 ```bash
 -- node install
 ```
+or check if it is installed already by running the following code
+```bash
+-- node version
+```
+
 ### Clone repository
 Clone repository by this link: INSERT LINK
 After that, run npm install to install all the dependencies 
