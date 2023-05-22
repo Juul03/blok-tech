@@ -1,4 +1,4 @@
-<img src="./img/plantparentlogo.svg" width="45%" max-height="100px">
+<img src="./static/img/plantparentlogo.svg" width="45%" max-height="100px">
 
 # Blok-Tech testtitel
 
