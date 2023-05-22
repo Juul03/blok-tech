@@ -9,6 +9,32 @@ app.use(express.static('static'));
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+// formulier middleware
+app.use(app.urlencoded({extended: true}));
+// app.post('/succes', add);
+
+app.get('/succes',(req,res)=>{
+  res.render('succes')
+})
+
+app.post('/succes',(req,res)=>{
+  const { name} = req.body
+  res.render('submit',{name:name})
+})
+
+const data = (req,res) => {
+  var id = slug(req.body.name).toLowerCase();
+
+  data.push({
+    id: id,
+    name: req.body.name
+  });
+
+  console.log(req.body.name);
+  res.redirect('/' + id);
+}
+
+
 // Notification API
 // const agreeButton = document.querySelector('#permissionbutton');
 // console.log(agreeButton);
@@ -63,8 +89,6 @@ app.get('*', (req, res) => {
     title: '404'
   });
 });
-
-
 
 // function plants(req,res) {
 //   res.render('index.ejs', {
