@@ -28,11 +28,11 @@ const permission = () => {
 
     Notification.requestPermission().then((result) => {
         console.log(result);
-      });
+    });
 }
 
 agreeButton.addEventListener('click', permission);
 
 const text = `Hey plantlover`;
-const notification = new Notification("To do list", { body: text});
+const notification = new Notification("Plant Parents update", { body: text});
 
