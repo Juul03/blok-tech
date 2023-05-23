@@ -32,8 +32,7 @@ const data = (req,res) => {
 
   console.log(req.body.name);
   res.redirect('/' + id);
-}
-
+} 
 
 // Notification API
 // const agreeButton = document.querySelector('#permissionbutton');

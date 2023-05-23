@@ -21,12 +21,18 @@ const fetchData = async () => {
 
   fetchData();
 
- 
+// Notification API
+const agreeButton = document.querySelector('#agreebutton');
+const permission = () => {
+    console.log('clicked')
 
+    Notification.requestPermission().then((result) => {
+        console.log(result);
+      });
+}
 
-// const soilTypeOptionList = document.querySelector('#soil-type');
-// let value = soilTypeOptionList.value;
-// let selectedSoilType = soilTypeOptionList[soilTypeOptionList.selectedIndex].text;
+agreeButton.addEventListener('click', permission);
 
-// console.log(selectedSoilType);
+const text = `Hey plantlover`;
+const notification = new Notification("To do list", { body: text});
 
