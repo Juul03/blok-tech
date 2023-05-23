@@ -68,11 +68,11 @@ output {
     }
 }
 
-fieldset input[type=text] {
+fieldset input[type=text].hidden {
     display:none;
 }
 
-fieldset input[type=text].active {
+fieldset input[type=text] {
     display:block;
 }
 
@@ -267,8 +267,13 @@ input[type=range]::-moz-range-thumb {
     border: solid 2px var(--secundary-color);
 }
 
-#agreement {
+#agreement-label {
     font-size:1.6rem;
     font-weight:normal;
 }
+
+//HIER NOG NAAR KIJKEN< ALLEEN ACTIEF NA DRUK OP SUBMIT BUTTON
+// input:invalid {
+//     border: solid 3px var(--secundary-color) ;
+// }
 

@@ -59,11 +59,11 @@ output .span--hidden {
   visibility: hidden;
 }
 
-fieldset input[type=text] {
+fieldset input[type=text].hidden {
   display: none;
 }
 
-fieldset input[type=text].active {
+fieldset input[type=text] {
   display: block;
 }
 
@@ -239,7 +239,7 @@ input[type=range]::-ms-thumb {
   border: solid 2px var(--secundary-color);
 }
 
-#agreement {
+#agreement-label {
   font-size: 1.6rem;
   font-weight: normal;
 }
