@@ -1,6 +1,6 @@
 # My adds
 /node_modules
-/eslintrc.json
+.eslintrc.json
 .env
 package-lock.json
 
