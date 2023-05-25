@@ -29,7 +29,37 @@ or check if it is installed already by running the following code
 ```
 
 ### Clone repository
-Clone repository by this link: INSERT LINK
-After that, run npm install to install all the dependencies 
-Check if it works by running the server: IN YOUR TERMINAL node server.js or npm start. 
+Clone repository by this link: https://github.com/Juul03/blok-tech.git with the following command:
+```bash
+-- git clone https://github.com/Juul03/blok-tech.git
+```
+
+After that, run
+```bash
+-- npm install
+```
+to install all the dependencies 
+
+Check if it works by running the server (in your terminal)
+```
+node server.js
+```
+or
+```
+npm start
+```
+or when you are lazy and do not want to run the server again when changes are made, run
+```
+npx nodemon server.js
+```
+
 If the server is running, the terminal should give the following feedback: SHAKING MY BOOTY 3000 TIMES
+
+You can now open the application by the following link:
+<a href="localhost:3000"> localhost:3000</a>
+
+
+## License
+2023 Julia Hoek GPL
+"Change all versions of a program under the same license to make sure it stays free for all"
+
