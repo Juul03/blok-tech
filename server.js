@@ -65,6 +65,13 @@ app.get('/feed/:plantType1', (req, res) => {
   })
 })
 
+// app.get('/about', async (req, res) => {
+//   const collection = client.db(process.env.DB_NAME).collection('Testbase')
+//   const data = await collection.find().toArray;
+//   console.log(data);
+//   // res.send(data);
+// })
+
 app.get('*', (req, res) => {
   res.status(404).render('not-found.ejs', {
     title: '404'
@@ -118,3 +125,5 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+

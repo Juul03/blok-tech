@@ -1,6 +1,7 @@
 # My adds
 /node_modules
 /eslintrc.json
+.env
 
 # Logs
 logs
