@@ -7,21 +7,21 @@
     <section>
         <p>*Required fields</p>
 
-        <form action="/succes" method="get" class="upload-form">
+        <form action="/upload" method="post" class="upload-form">
             <div>
                 <label for="plantpic">Choose images<span class="required">*</span></label>
-                <input type="file" name="plantpic" id="plantpic" accept="image/png, image/jpeg" required >
+                <input type="file" name="plantpic" id="plantpic" accept="image/png, image/jpeg">
                 <output></output>
             </div>
 
             <label for="plant-type">Plant type<span class="required">*</span></label>
-            <input type="text" name="plant-type" id="plant-type" required>
+            <input type="text" name="plant-type" id="plant-type">
 
             <label for="plant-height">Height<span class="required">*</span></label>
-            <input type="number" name="plant-height" id="plant-height" required><span  class="unit-type">cm</span>
+            <input type="number" name="plant-height" id="plant-height"><span  class="unit-type">cm</span>
 
             <label for="pot-diameter">Current diameter of the pot<span class="required">*</span></label>
-            <input type="number" name="pot-diameter" id="pot-diameter" required><span class="unit-type">cm</span>
+            <input type="number" name="pot-diameter" id="pot-diameter"><span class="unit-type">cm</span>
 
             <fieldset>
                 <legend>Needs a repot?<span class="required">*</span></legend>
@@ -43,7 +43,7 @@
                 <img src="../img/icons/halfshadowsun.svg" alt="halfshadowsun">
                 <img src="../img/icons/sun.svg" alt="sun">
             </div>
-            <input type="range" name="sunlight-brightness" id="sunlight-brightness" min="0" max="4" required>
+            <input type="range" name="sunlight-brightness" id="sunlight-brightness" min="0" max="4">
 
             <label for="water-ammount">Water ammount<span class="required">*</span></label>
             <div class="range-images">
@@ -51,7 +51,7 @@
                 <img src="../img/icons/doubledrop.svg" alt="a little water">
                 <img src="../img/icons/triodrop.svg" alt="a lot of water">
             </div>
-            <input type="range" name="water-ammount" id="water-ammount" min="0" max="4" required>
+            <input type="range" name="water-ammount" id="water-ammount" min="0" max="4">
 
             <fieldset>
                 <legend>Soil-type</legend>
@@ -103,7 +103,7 @@
 
             <div>
                 <label for="agreement" id="agreement-label"><span class="required">*</span>I agree with the terms and conditions</label>
-                <input type="checkbox" name="agreement" id="agreement" required>
+                <input type="checkbox" name="agreement" id="agreement">
             </div>
 
             <button type="submit">Upload my plant!</button>

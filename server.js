@@ -1,4 +1,6 @@
 const express = require("express");
+const dotenv = require('dotenv');
+dotenv.config();
 const app = express();
 const port = 3300;
 
@@ -10,17 +12,8 @@ app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // formulier middleware
-app.use(app.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 // app.post('/succes', add);
-
-app.get('/succes',(req,res)=>{
-  res.render('succes')
-})
-
-app.post('/succes',(req,res)=>{
-  const { name} = req.body
-  res.render('submit',{name:name})
-})
 
 const data = (req,res) => {
   var id = slug(req.body.name).toLowerCase();
@@ -33,23 +26,6 @@ const data = (req,res) => {
   console.log(req.body.name);
   res.redirect('/' + id);
 } 
-
-// Notification API
-// const agreeButton = document.querySelector('#permissionbutton');
-// console.log(agreeButton);
-
-// agreeButton.addEventListener("click", () => {
-//   let promise = Notification.requestPermission();
-//   console.log(promise);
-// });
-
-// if (window.Notification && Notificaiton.permission !== "denied") {
-//   Notification.requestPermission((status) => {
-//     let notification = new Notification('Title', {
-//       body: 'Test tekst'
-//     })
-//   })
-// }
 
 var plants = [
   { planttype: 'Spiderplant', height:'25', repot:'yes'},
@@ -68,6 +44,12 @@ app.get('/upload', (req, res) => {
   res.render('upload', {
     title: 'upload'
   })
+})
+
+app.post('/upload', (req, res) => {
+  console.log('testpost')
+ 
+  res.redirect('/succes')
 })
 
 app.get('/succes', (req, res) => {
@@ -109,3 +91,30 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`Shaking my booty ${port} times`)
 })
+
+
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.o8kudyf.mongodb.net/?retryWrites=true&w=majority`;
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
