@@ -56,7 +56,7 @@ npx nodemon server.js
 If the server is running, the terminal should give the following feedback: SHAKING MY BOOTY 3000 TIMES
 
 You can now open the application by the following link:
-[localhost:3000]( localhost:3000)
+[localhost:3000](https://localhost:3000)
 
 
 ## License
