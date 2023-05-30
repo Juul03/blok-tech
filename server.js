@@ -27,6 +27,23 @@ app.set('views', './views');
 // formulier middleware
 app.use(express.urlencoded({extended: true}));
 
+const mongoDBRun = async (req, res, next) => {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log('Pinged your deployment. You successfully connected to MongoDB!');
+
+  } catch (err) {
+      console.log(err);
+  } 
+}
+
+mongoDBRun().catch(console.dir);
+
+
 const dataPlant = (req, res) => {
   var id = slug(req.body.name).toLowerCase();
 
@@ -45,6 +62,7 @@ var plants = [
   { planttype: 'Calathea', height:'14', repot:'no'}
 ];
 
+// ROUTES
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'home',
@@ -70,6 +88,47 @@ app.get('/succes', (req, res) => {
   })
 })
 
+app.get('/feed', async (req, res) => {
+  const plantCollection = client
+          .db('Testbase')
+          .collection('Test1');
+
+    const AllPlantData = await plantCollection.find().toArray();
+    console.log(AllPlantData);
+
+    res.render('feed.ejs', {
+        title: 'plantfeed',
+        data: AllPlantData
+    })
+
+    //DIT HIEBROVEN WERKT NU
+    // nu nog de data in de pagina laden, als het goed is als eens gedaan met statische data, staat ergens
+    // in commentaar in server.js
+
+  // const getAllPlants = async (req, res) => {
+  //     const plantCollection = client
+  //         .db('Testbase')
+  //         .collection('Test1');
+
+  //     const AllPlantData = await plantCollection.find().toArray(receivedAllPlants);
+  //     console.log(AllPlantData);
+
+  //     const receivedAllPlants = (req, res, next) => {
+  //       if (error) {
+  //         next(err)
+  //         console.log('data failed')
+  //       } else {
+  //         res.render('feed.ejs', {
+  //           title: 'plantfeed',
+  //           // data: plantCollection
+  //         })
+  //       }
+  //     }
+  // }
+
+  // getAllPlants();
+})
+
 app.get('/feed/:plantType1', (req, res) => {
   res.render('plant.ejs', {
     plantType: req.params.plantType1,
@@ -77,40 +136,29 @@ app.get('/feed/:plantType1', (req, res) => {
   })
 })
 
-// TEST DATA OPHALEN UIT DE DATABASE
-// app.get('/datatest', async (req, res) => {
-//   const collection = client
-//     .db('sample_airbnb')
-//     .collection('listingsAndReviews');
+// app.get("/datatest", async (req, res) => {
+//   try {
+//       // Connect the client to the server (optional starting in v4.7)
+//       await client.connect();
+
+//       // Send a ping to confirm a successful connection
+//       await client.db("admin").command({ ping: 1 });
+//       console.log('Pinged your deployment. You successfully connected to MongoDB!');
+
+//       const collection = client
+//           .db('Testbase')
+//           .collection('Test1');
+
+//       const data = await collection.find().toArray();
+//       console.log(data);
+//       res.send(data);
   
-//   const data = await collection.find().toArray;
-//   // // console.log(data);
-//   res.send(data);
-// })
-
-app.get("/datatest", async (req, res) => {
-  try {
-      // Connect the client to the server (optional starting in v4.7)
-      await client.connect();
-
-      // Send a ping to confirm a successful connection
-      await client.db("admin").command({ ping: 1 });
-      console.log('Pinged your deployment. You successfully connected to MongoDB!');
-
-      const collection = client
-          .db('Testbase')
-          .collection('Test1');
-
-      const data = await collection.find().toArray();
-      console.log(data);
-      res.send(data);
-  
-  } catch (err) {
-      console.log(err);
-  } finally {
-      await client.close();
-  }
-});
+//   } catch (err) {
+//       console.log(err);
+//   } finally {
+//       await client.close();
+//   }
+// });
 
 app.get('*', (req, res) => {
   res.status(404).render('not-found.ejs', {
