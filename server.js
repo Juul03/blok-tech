@@ -17,6 +17,21 @@ const client = new MongoClient(uri, {
   }
 });
 
+// async function run() {
+//   try {
+//     // Connect the client to the server	(optional starting in v4.7)
+//     await client.connect();
+//     // Send a ping to confirm a successful connection
+//     await client.db("admin").command({ ping: 1 });
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     // await client.close();
+//     console.log('finished')
+//   }
+// }
+// run().catch(console.dir);
+
 // de static map openbaar maken (middleware)
 app.use(express.static('static'));
 
@@ -78,27 +93,40 @@ app.get('/feed/:plantType1', (req, res) => {
 })
 
 // TEST DATA OPHALEN UIT DE DATABASE
-app.get('/datatest', async (req, res) => {
+// app.get('/datatest', async (req, res) => {
+//   const collection = client
+//     .db('sample_airbnb')
+//     .collection('listingsAndReviews');
+  
+//   const data = await collection.find().toArray;
+//   // // console.log(data);
+//   res.send(data);
+// })
 
-  async function run() {
-    try {
-      // Connect the client to the server	(optional starting in v4.7)
+app.get("/datatest", async (req, res) => {
+  try {
+      // Connect the client to the server (optional starting in v4.7)
       await client.connect();
-      // Send a ping to confirm a successful connection
-      await client.db("admin").command({ ping: 1 });
-      console.log("Pinged your deployment. You successfully connected to MongoDB!");
 
-      const collection = client.db(process.env.DB_NAME).collection('Testbase.Test1');
+      // Send a ping to confirm a successful connection
+      // await client.db("admin").command({ ping: 1 });
+      // console.log(
+      //  "Pinged your deployment. You successfully connected to MongoDB!"
+      // );
+      const collection = client
+          .db('Testbase')
+          .collection('Test1');
+
       const data = await collection.find().toArray;
-      // // console.log(data);
+      console.log(data);
       res.send(data);
-    } finally {
-      // Ensures that the client will close when you finish/error
+  
+  } catch (err) {
+      console.log(err);
+  } finally {
       await client.close();
-    }
   }
-  run().catch(console.dir);
-})
+});
 
 app.get('*', (req, res) => {
   res.status(404).render('not-found.ejs', {
