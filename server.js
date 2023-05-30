@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require('dotenv');
 const app = express();
-const port = 3300;
+const port = 3000;
 
 dotenv.config();
 
@@ -16,21 +16,6 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-
-// async function run() {
-//   try {
-//     // Connect the client to the server	(optional starting in v4.7)
-//     await client.connect();
-//     // Send a ping to confirm a successful connection
-//     await client.db("admin").command({ ping: 1 });
-//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
-//   } finally {
-//     // Ensures that the client will close when you finish/error
-//     // await client.close();
-//     console.log('finished')
-//   }
-// }
-// run().catch(console.dir);
 
 // de static map openbaar maken (middleware)
 app.use(express.static('static'));
@@ -109,15 +94,14 @@ app.get("/datatest", async (req, res) => {
       await client.connect();
 
       // Send a ping to confirm a successful connection
-      // await client.db("admin").command({ ping: 1 });
-      // console.log(
-      //  "Pinged your deployment. You successfully connected to MongoDB!"
-      // );
+      await client.db("admin").command({ ping: 1 });
+      console.log('Pinged your deployment. You successfully connected to MongoDB!');
+
       const collection = client
           .db('Testbase')
           .collection('Test1');
 
-      const data = await collection.find().toArray;
+      const data = await collection.find().toArray();
       console.log(data);
       res.send(data);
   
