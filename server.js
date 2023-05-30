@@ -5,6 +5,31 @@ const port = 3300;
 
 dotenv.config();
 
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.o8kudyf.mongodb.net/?retryWrites=true&w=majority`;
+
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } catch {
+    console.log('database disconnected')
+  }
+}
+run().catch(console.dir);
+
 // de static map openbaar maken (middleware)
 app.use(express.static('static'));
 
@@ -66,12 +91,12 @@ app.get('/feed/:plantType1', (req, res) => {
 })
 
 // TEST DATA OPHALEN UIT DE DATABASE
-// app.get('/datatest', async (req, res) => {
-//   const collection = client.db(process.env.DB_NAME).collection('Testbase.Test1');
-//   const data = await collection.find().toArray;
-//   // // console.log(data);
-//   res.send(data);
-// })
+app.get('/datatest', async (req, res) => {
+  const collection = client.db(process.env.DB_NAME).collection('Testbase.Test1');
+  const data = await collection.find().toArray;
+  // // console.log(data);
+  res.send(data);
+})
 
 app.get('*', (req, res) => {
   res.status(404).render('not-found.ejs', {
@@ -85,13 +110,6 @@ app.get('*', (req, res) => {
 //   })
 // }
 
-// DIT TOEVOEGEN AAN DE INDEX --> WERKT ALLEEN NIET
-// <!-- <ul id="plants">
-// <% plants.forEach(function(plants) { %>
-//     <li><%= plants.planttype %></li>
-// <% }) %>
-// </ul> -->
-
 // app.get('/about', (req, res) => {
 //   res.send('About')
 // })
@@ -99,32 +117,3 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
   console.log(`Shaking my booty ${port} times`)
 })
-
-
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.o8kudyf.mongodb.net/?retryWrites=true&w=majority`;
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
-
-
