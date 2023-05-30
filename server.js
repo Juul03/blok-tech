@@ -1,8 +1,9 @@
 const express = require("express");
 const dotenv = require('dotenv');
-dotenv.config();
 const app = express();
 const port = 3300;
+
+dotenv.config();
 
 // de static map openbaar maken (middleware)
 app.use(express.static('static'));
@@ -13,12 +14,11 @@ app.set('views', './views');
 
 // formulier middleware
 app.use(express.urlencoded({extended: true}));
-// app.post('/succes', add);
 
-const data = (req, res) => {
+const dataPlant = (req, res) => {
   var id = slug(req.body.name).toLowerCase();
 
-  data.push({
+  dataPlant.push({
     id: id,
     name: req.body.name
   });
@@ -65,13 +65,13 @@ app.get('/feed/:plantType1', (req, res) => {
   })
 })
 
-//TEST DATA OPHALEN UIT DE DATABASE
-app.get('/datatest', async (req, res) => {
-  const collection = client.db(process.env.DB_NAME).collection('sample_airbnb.listingsAndReviews')
-  // const data = await collection.find().toArray;
-  // // console.log(data);
-  // res.send(data);
-})
+// TEST DATA OPHALEN UIT DE DATABASE
+// app.get('/datatest', async (req, res) => {
+//   const collection = client.db(process.env.DB_NAME).collection('Testbase.Test1');
+//   const data = await collection.find().toArray;
+//   // // console.log(data);
+//   res.send(data);
+// })
 
 app.get('*', (req, res) => {
   res.status(404).render('not-found.ejs', {
