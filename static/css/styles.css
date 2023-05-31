@@ -108,20 +108,32 @@ main ul li {
   box-shadow: 0.5rem 0.5rem 1rem var(--secundary-color-transparent);
   margin: auto;
 }
-#plantinfocard li {
+#plantinfocard :not(li:nth-of-type(2)) {
   font-size: 1.5rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   align-items: center;
   padding: 0.5rem 0;
 }
-#plantinfocard li img {
+#plantinfocard :not(li:nth-of-type(2)) img {
   max-width: 1.5rem;
   max-height: 1.5rem;
   margin-right: 0.5rem;
 }
 #plantinfocard li:first-of-type {
   font-weight: bold;
+  padding: 0.5rem;
+}
+#plantinfocard li:nth-of-type(2) {
+  width: 100%;
+  height: 8rem;
+  padding-bottom: 1rem;
+}
+#plantinfocard li:nth-of-type(2) img {
+  object-fit: cover;
+  border-radius: var(--standard-radius);
+  width: 100%;
+  height: 8rem;
 }
 #plantinfocard :not(li:first-of-type) {
   color: var(--brand-color);

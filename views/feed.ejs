@@ -6,10 +6,45 @@
 
     <ul id="feed">
         <% AllPlantData.forEach(plant => { %>
-        <ul id="plantinfocard">
-            <li><%- plant.planttype %></li>
-            <li><%- plant.height %></li>
-        </ul>
+            <ul id="plantinfocard">
+                <li><%- plant.planttype %></li>
+                <li><img src="/uploadedplantimg/<%= plant.plantimg.filename %>" alt="<%= plant.plantimg.originalname %>"></li>
+                <li>
+                    <% if(plant.sunlight == 1 || plant.sunlight == 2) { %> 
+                        <img src="/img/icons/shadow.svg" alt="shadow">
+                        fullshadow
+    
+                    <% } else if(plant.sunlight == 3) { %>
+                        <img src="/img/icons/halfshadowsun.svg" alt="half shadow half sun">
+                        halfshadow
+    
+                    <% } else if(plant.sunlight == 4 || plant.sunlight == 5) { %>
+                        <img src="/img/icons/sun.svg" alt="fullsun">
+                        fullsun
+                        
+                        <% } %>
+                </li>
+                <li>
+                    <% if(plant.water == 1 || plant.water == 2) { %> 
+                        <img src="/img/icons/singledrop.svg" alt="shadow">
+                        1x per week
+    
+                    <% } else if(plant.water == 3) { %>
+                        <img src="/img/icons/doubledrop.svg" alt="half shadow half sun">
+                       2x per week
+    
+                    <% } else if(plant.water == 4 || plant.water == 5) { %>
+                        <img src="/img/icons/triodrop.svg" alt="fullsun">
+                        3x per week
+                        
+                        <% } %>
+                </li>
+                <li>
+                    <img src="/img/icons/skilllevel.svg" alt="skill-level">
+                    <%- plant.carelevel %>
+                </li>
+    
+            </ul>
         <% }) %>
     </ul>
 

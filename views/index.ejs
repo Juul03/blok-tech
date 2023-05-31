@@ -8,13 +8,46 @@
 
     <section>
         <h3>Recent uploads</h3>
-        <%- include('plantinfocard.ejs') %>
-    
-        <!-- <ul>
-            <% allPlants.forEach(function(plants) { %>
-            <li><%= plants.planttype %></li>
-            <% }) %>
-        </ul> -->
+        <ul id="plantinfocard">
+            <li><%- mostRecentPlant.planttype %></li>
+            <li><img src="/uploadedplantimg/<%= mostRecentPlant.plantimg.filename %>" alt="<%= mostRecentPlant.plantimg.originalname %>"></li>
+            <li>
+                <% if(mostRecentPlant.sunlight == 1 || mostRecentPlant.sunlight == 2) { %> 
+                    <img src="/img/icons/shadow.svg" alt="shadow">
+                    fullshadow
+
+                <% } else if(mostRecentPlant.sunlight == 3) { %>
+                    <img src="/img/icons/halfshadowsun.svg" alt="half shadow half sun">
+                    halfshadow
+
+                <% } else if(mostRecentPlant.sunlight == 4 || mostRecentPlant.sunlight == 5) { %>
+                    <img src="/img/icons/sun.svg" alt="fullsun">
+                    fullsun
+                    
+                    <% } %>
+            </li>
+            <li>
+                <% if(mostRecentPlant.water == 1 || mostRecentPlant.water == 2) { %> 
+                    <img src="/img/icons/singledrop.svg" alt="shadow">
+                    1x per week
+
+                <% } else if(mostRecentPlant.water == 3) { %>
+                    <img src="/img/icons/doubledrop.svg" alt="half shadow half sun">
+                   2x per week
+
+                <% } else if(mostRecentPlant.water == 4 || mostRecentPlant.water == 5) { %>
+                    <img src="/img/icons/triodrop.svg" alt="fullsun">
+                    3x per week
+                    
+                    <% } %>
+            </li>
+            <li>
+                <img src="/img/icons/skilllevel.svg" alt="skill-level">
+                <%- mostRecentPlant.carelevel %>
+            </li>
+
+        </ul>
+        
         <a href="/feed">Discover all plants!</a>
     </section>
 

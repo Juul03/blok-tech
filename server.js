@@ -50,11 +50,22 @@ mongoDBRun().catch(console.dir);
 
 
 // ROUTES get request
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+try{
+  const plantCollection = client
+  .db('plantparents')
+  .collection('plantscollection')
+
+  const AllPlantData = await plantCollection.find({}).toArray();
+  const mostRecentPlant = AllPlantData[AllPlantData.length - 1];
+
   res.render('index', {
-    title: 'home',
-    allPlants: plants
-  })
+  title: 'home',
+  mostRecentPlant: mostRecentPlant }) 
+  
+  } catch(err) {
+  console.error("Something went wrong with sending data to the db", err);
+  }
 })
 
 app.get('/upload', (req, res) => {
@@ -65,8 +76,8 @@ app.get('/upload', (req, res) => {
 
 app.get('/feed', async (req, res) => {
   const plantCollection = client
-          .db('Testbase')
-          .collection('Test1')
+          .db('plantparents')
+          .collection('plantscollection')
 
     const AllPlantData = await plantCollection.find({}).toArray();
     console.log(AllPlantData);
@@ -117,8 +128,8 @@ app.post('/upload', upload.single('plantpic'), async (req, res) => {
 async function sendData(data) {
   try {
     const PlantData = client
-    .db("Testbase")
-    .collection("Test1");
+    .db("plantparents")
+    .collection("plantscollection");
 
     const uploadPlantData = await PlantData.insertOne(data);
     console.log("The plant is planted in the database!", uploadPlantData.insertedId);
