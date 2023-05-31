@@ -76,24 +76,50 @@ app.get('/upload', (req, res) => {
   })
 })
 
-app.post('/upload', (req, res) => {
+app.post('/upload', async (req, res) => {
   console.log('testpost')
- 
-  res.redirect('/succes')
+  // plantimages = req.body.plantpic;
+  planttype = req.body.planttype;
+  height = req.body.plantheight;
+  potdiameter = req.body.potdiameter; 
+  repot = req.body.repot;
+  sunlight = req.body.sunlightbrightness;
+  water = req.body.waterammount;
+  soiltype = req.body.soiltype;
+  carelevel = req.body.carelevel;
+  additionalinfo = req.body.additionalinfo;
+
+  // Alle data opslaan in een object
+  const formPlantData = {planttype, height, potdiameter, repot, sunlight, water, soiltype, carelevel, additionalinfo}
+
+  try {
+    await sendData(formPlantData);
+    console.log(height);
+    res.redirect('/succes')
+  } catch(err) {
+    console.error("Something went wrong with sending data to the db", err);
+  }
 })
 
-app.get('/succes', (req, res) => {
-  res.render('succes', {
-    title: 'succes'
-  })
-})
+async function sendData(data) {
+  try {
+    const PlantData = client
+    .db("Testbase")
+    .collection("Test1");
+
+    const uploadPlantData = await PlantData.insertOne(data);
+    console.log("The plant is planted in the database!", uploadPlantData.insertedId);
+  } catch (err) {
+    console.error("Something went wrong with adding the plant to the database :(", err);
+  }
+}
 
 app.get('/feed', async (req, res) => {
   const plantCollection = client
           .db('Testbase')
           .collection('Test1')
 
-    const AllPlantData = await plantCollection.find().toArray();
+    const AllPlantData = await plantCollection.find({}).toArray();
     console.log(AllPlantData);
 
     res.render('feed.ejs', {
@@ -101,6 +127,12 @@ app.get('/feed', async (req, res) => {
         AllPlantData: AllPlantData,
         // planttype: AllPlantData.planttype
     })
+})
+
+app.get('/succes', (req, res) => {
+  res.render('succes', {
+    title: 'succes'
+  })
 })
 
 

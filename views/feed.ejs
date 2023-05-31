@@ -3,13 +3,21 @@
 <main>
     <h1>Feed</h1>
     <p>See all available plants here!</p>
-    <p><%= AllPlantData.planttype %></p>
 
     <ul id="feed">
-        <% AllPlantData.forEach(function(AllPlantData) { %>
-            <li><%- include('plantinfocard') %></li>
-       <% }) %>
+        <% AllPlantData.forEach(plant => { %>
+        <ul id="plantinfocard">
+            <li><%- plant.planttype %></li>
+            <li><%- plant.height %></li>
+        </ul>
+        <% }) %>
     </ul>
+
+    <!-- <ul id="feed">
+        <% AllPlantData.forEach(plant => { %>
+        <li><%- include('plantinfocard') %></li>
+        <% }) %>
+    </ul> -->
 </main>
 
 <%- include('footer.ejs') %>

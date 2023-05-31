@@ -14,26 +14,26 @@
                 <output></output>
             </div>
 
-            <label for="plant-type">Plant type<span class="required">*</span></label>
-            <input type="text" name="plant-type" id="plant-type">
+            <label for="planttype">Plant type<span class="required">*</span></label>
+            <input type="text" name="planttype" id="planttype">
 
-            <label for="plant-height">Height<span class="required">*</span></label>
-            <input type="number" name="plant-height" id="plant-height" required><span  class="unit-type">cm</span>
+            <label for="plantheight">Height<span class="required">*</span></label>
+            <input type="number" name="plantheight" id="plantheight" required><span  class="unit-type">cm</span>
 
-            <label for="pot-diameter">Current diameter of the pot<span class="required">*</span></label>
-            <input type="number" name="pot-diameter" id="pot-diameter"><span class="unit-type">cm</span>
+            <label for="potdiameter">Current diameter of the pot<span class="required">*</span></label>
+            <input type="number" name="potdiameter" id="potdiameter"><span class="unit-type">cm</span>
 
             <fieldset>
                 <legend>Needs a repot?<span class="required">*</span></legend>
             
                 <div>
-                    <input type="radio" name="yes" id="yes" value="yes">
+                    <input type="radio" name="repot" id="yes" value="yes">
                     <label for="yes">Yes</label>
                 </div>
 
                 <div>
-                    <input type="radio" name="no" id="no" value="no">
-                    <label for="yes">No</label>
+                    <input type="radio" name="repot" id="no" value="no">
+                    <label for="no">No</label>
                 </div>
             </fieldset>
 
@@ -43,7 +43,7 @@
                 <img src="../img/icons/halfshadowsun.svg" alt="halfshadowsun">
                 <img src="../img/icons/sun.svg" alt="sun">
             </div>
-            <input type="range" name="sunlight-brightness" id="sunlight-brightness" min="0" max="4">
+            <input type="range" name="sunlightbrightness" id="sunlight-brightness" min="0" max="4">
 
             <label for="water-ammount">Water ammount<span class="required">*</span></label>
             <div class="range-images">
@@ -51,55 +51,55 @@
                 <img src="../img/icons/doubledrop.svg" alt="a little water">
                 <img src="../img/icons/triodrop.svg" alt="a lot of water">
             </div>
-            <input type="range" name="water-ammount" id="water-ammount" min="0" max="4">
+            <input type="range" name="waterammount" id="water-ammount" min="0" max="4">
 
             <fieldset>
                 <legend>Soil-type</legend>
             
                 <div>
-                  <input type="checkbox" id="regular" name="regular" checked>
+                  <input type="checkbox" id="regular" name="soiltype" value="regular" checked>
                   <label for="regular">Regular</label>
                 </div>
             
                 <div>
-                  <input type="checkbox" id="perlite" name="perlite">
+                  <input type="checkbox" id="perlite" name="soiltype" value="perlite">
                   <label for="perlite">Perlite</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="succulent mix" name="succulent mix">
+                    <input type="checkbox" id="succulent mix" name="soiltype" value="succulent mix">
                     <label for="succulent mix">Succulent mix</label>
                 </div>
 
                 <div>
-                    <input type="checkbox" id="else" name="else">
+                    <input type="checkbox" id="else" name="soiltype" value="else">
                     <label for="else">Else</label>
                 </div>
 
-                <input type="text" name="own-mixture" placeholder="Which soil do you use?">
+                <input type="text" name="soiltype" placeholder="Which soil do you use?">
             </fieldset>
 
             <fieldset>
                 <legend>Care level<span class="required">*</span></legend>
             
                 <div>
-                    <input type="radio" name="care-level" id="beginner" value="beginner">
+                    <input type="radio" name="carelevel" id="beginner" value="beginner">
                     <label for="beginner">Beginner</label>
                 </div>
 
                 <div>
-                    <input type="radio" name="care-level" id="intermediate" value="intermediate">
+                    <input type="radio" name="carelevel" id="intermediate" value="intermediate">
                     <label for="intermediate">Intermediate</label>
                 </div>
 
                 <div>
-                    <input type="radio" name="care-level" id="expert" value="expert">
+                    <input type="radio" name="carelevel" id="expert" value="expert">
                     <label for="expert">Expert</label>
                 </div>
             </fieldset>
 
             <label for="additional-info">Additional info</label>
-            <textarea id="additional-info" placeholder="Add more info or specialties about your plant "></textarea>
+            <textarea id="additional-info" name="additionalinfo" placeholder="Add more info or specialties about your plant "></textarea>
 
             <div>
                 <label for="agreement" id="agreement-label"><span class="required">*</span>I agree with the terms and conditions</label>
