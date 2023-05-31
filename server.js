@@ -88,10 +88,22 @@ app.get('/feed', async (req, res) => {
     })
 })
 
-app.get('/succes', (req, res) => {
-  res.render('succes', {
-    title: 'succes'
-  })
+app.get('/succes', async (req, res) => {
+  try{
+    const plantCollection = client
+    .db('plantparents')
+    .collection('plantscollection')
+  
+    const AllPlantData = await plantCollection.find({}).toArray();
+    const mostRecentPlant = AllPlantData[AllPlantData.length - 1];
+  
+    res.render('succes', {
+    title: 'succes',
+    mostRecentPlant: mostRecentPlant }) 
+    
+    } catch(err) {
+    console.error("Something went wrong with sending data to the db", err);
+    }
 })
 
 app.get('*', (req, res) => {

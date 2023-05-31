@@ -2,16 +2,49 @@
 
 <main>
     <h2>Thanks!</h2>
-    <p>The upload of "YOURPLANT" has been succesfull!</p>
-    <p>It might take a while before it is showing on the feed, in the mean time, see the result here:</p>
+    <p>The upload of <em><%- mostRecentPlant.planttype %></em> has been succesfull!</p>
     
     <ul id="plantinfocard">
-        <li>kaas</li>
-        <li><img src="" alt=""></li>
-        <li><img src="../img/icons/singledrop.svg" alt=""> water</li>
-        <li><img src="../img/icons/halfshadowsun.svg" alt=""> zon</li>
-        <li><img src="../img/icons/skilllevel.svg" alt=""> Beginner</li>
+        <li><%- mostRecentPlant.planttype %></li>
+        <li><img src="/uploadedplantimg/<%= mostRecentPlant.plantimg.filename %>" alt="<%= mostRecentPlant.plantimg.originalname %>"></li>
+        <li>
+            <% if(mostRecentPlant.sunlight == 0 || mostRecentPlant.sunlight == 1) { %> 
+                <img src="/img/icons/shadow.svg" alt="shadow">
+                fullshadow
+
+            <% } else if(mostRecentPlant.sunlight == 2) { %>
+                <img src="/img/icons/halfshadowsun.svg" alt="half shadow half sun">
+                halfshadow
+
+            <% } else if(mostRecentPlant.sunlight == 3 || mostRecentPlant.sunlight == 4) { %>
+                <img src="/img/icons/sun.svg" alt="fullsun">
+                fullsun
+                
+                <% } %>
+        </li>
+        <li>
+            <% if(mostRecentPlant.water == 0 || mostRecentPlant.water == 1) { %> 
+                <img src="/img/icons/singledrop.svg" alt="shadow">
+                1x per week
+
+            <% } else if(mostRecentPlant.water == 2) { %>
+                <img src="/img/icons/doubledrop.svg" alt="half shadow half sun">
+               2x per week
+
+            <% } else if(mostRecentPlant.water == 3 || mostRecentPlant.water == 4) { %>
+                <img src="/img/icons/triodrop.svg" alt="fullsun">
+                3x per week
+                
+                <% } %>
+        </li>
+        <li>
+            <img src="/img/icons/skilllevel.svg" alt="skill-level">
+            <%- mostRecentPlant.carelevel %>
+        </li>
+
     </ul>
+
+    <a  href="/feed" id="feedbutton">See your plant on the feed!</a>
 </main>
 
 <%- include('footer.ejs') %>

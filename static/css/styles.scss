@@ -70,6 +70,11 @@ q {
     text-align: center;
 }
 
+em {
+    color:var(--secundary-color);
+    font-weight: bold;
+}
+
 header {
     background-color:var(--brand-color);
     height:6.25rem;
@@ -103,6 +108,7 @@ main {
 
     p:first-of-type {
         text-align:center;
+        font-size:1.5rem;
     }
 
     ul li {
@@ -112,23 +118,38 @@ main {
 
 }
 
+main > section > h3 {
+    text-align: center;;
+}
+
+#feed {
+    margin-top:2rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.8rem;
+}
+
+main > #plantinfocard {
+    margin-top:2rem;
+}
+
 #plantinfocard {
     background-color:white;
     border-radius:var(--standard-radius);
-    padding:1rem;
-    width:45%;
+    padding:1.1rem;
+    width:38%;
 
     box-shadow:.5rem .5rem 1rem var(--secundary-color-transparent);
     margin:auto;
 
     :not(li:nth-of-type(2)) {
-        font-size:1.5rem;
+        font-size:1.2rem;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
         display:flex;
         align-items: center;
 
-        padding:.5rem 0;
+        padding:.4rem 0;
 
         img {
             max-width:1.5rem;
@@ -161,7 +182,7 @@ main {
     }
 }
 
-section > a {
+#feedbutton {
     text-decoration: none;
     display:block;
     text-align: center;
