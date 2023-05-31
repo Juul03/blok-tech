@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require('dotenv');
+const multer  = require('multer')
 const app = express();
 const port = 3000;
 
@@ -76,9 +77,16 @@ app.get('/upload', (req, res) => {
   })
 })
 
-app.post('/upload', async (req, res) => {
+
+// Multer: where to save uploaded files
+const upload = multer({ dest: './static/uploadedplantimg' })
+
+app.post('/upload', upload.single('plantpic'), async (req, res) => {
   console.log('testpost')
-  // plantimages = req.body.plantpic;
+  console.log(req.file)
+
+  // plantimages = req.file.filename;
+  plantimg = req.file
   planttype = req.body.planttype;
   height = req.body.plantheight;
   potdiameter = req.body.potdiameter; 
@@ -90,7 +98,7 @@ app.post('/upload', async (req, res) => {
   additionalinfo = req.body.additionalinfo;
 
   // Alle data opslaan in een object
-  const formPlantData = {planttype, height, potdiameter, repot, sunlight, water, soiltype, carelevel, additionalinfo}
+  const formPlantData = {plantimg, planttype, height, potdiameter, repot, sunlight, water, soiltype, carelevel, additionalinfo}
 
   try {
     await sendData(formPlantData);
