@@ -91,43 +91,18 @@ app.get('/succes', (req, res) => {
 app.get('/feed', async (req, res) => {
   const plantCollection = client
           .db('Testbase')
-          .collection('Test1');
+          .collection('Test1')
 
     const AllPlantData = await plantCollection.find().toArray();
     console.log(AllPlantData);
 
     res.render('feed.ejs', {
         title: 'plantfeed',
-        data: AllPlantData
+        AllPlantData: AllPlantData,
+        // planttype: AllPlantData.planttype
     })
-
-    //DIT HIEBROVEN WERKT NU
-    // nu nog de data in de pagina laden, als het goed is als eens gedaan met statische data, staat ergens
-    // in commentaar in server.js
-
-  // const getAllPlants = async (req, res) => {
-  //     const plantCollection = client
-  //         .db('Testbase')
-  //         .collection('Test1');
-
-  //     const AllPlantData = await plantCollection.find().toArray(receivedAllPlants);
-  //     console.log(AllPlantData);
-
-  //     const receivedAllPlants = (req, res, next) => {
-  //       if (error) {
-  //         next(err)
-  //         console.log('data failed')
-  //       } else {
-  //         res.render('feed.ejs', {
-  //           title: 'plantfeed',
-  //           // data: plantCollection
-  //         })
-  //       }
-  //     }
-  // }
-
-  // getAllPlants();
 })
+
 
 app.get('/feed/:plantType1', (req, res) => {
   res.render('plant.ejs', {
