@@ -104,7 +104,9 @@ header {
 
 
 main {
-    padding:1.8rem;
+    padding:1.8rem 1.8rem 8rem;
+    display:flex;
+    flex-direction:column;
 
     p:first-of-type {
         text-align:center;
@@ -202,13 +204,18 @@ main > #plantinfocard {
     box-shadow:.25rem .25rem 1rem #54AE7850;
   }
 
+#meme {
+    max-width:80%;
+    margin:2rem auto;
+  }
+
 
 footer {
     background-color:var(--brand-color);
     height:6.25rem;
     border-radius: var(--standard-radius) var(--standard-radius) 0 0;
 
-    position:sticky;
+    position:fixed;
     bottom:0;
 
     nav {
