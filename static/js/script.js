@@ -21,18 +21,3 @@ const fetchData = async () => {
 
   fetchData();
 
-// Notification API
-const agreeButton = document.querySelector('#agreebutton');
-const permission = () => {
-    console.log('clicked')
-
-    Notification.requestPermission().then((result) => {
-        console.log(result);
-    });
-}
-
-agreeButton.addEventListener('click', permission);
-
-const text = `Hey plantlover`;
-const notification = new Notification("Plant Parents update", { body: text});
-
