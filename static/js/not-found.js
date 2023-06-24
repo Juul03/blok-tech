@@ -1,5 +1,3 @@
-console.log('sadly not found, but atleast the js is active');
-
 const memeContainer = document.querySelector('main > img');
 
 const fetchDataMemes= async () => {
@@ -20,7 +18,6 @@ const fetchDataMemes= async () => {
         const resultOfMemeGenerator = getRandomMeme(allMemesArray);
 
         let memeUrl = resultOfMemeGenerator.url;
-        console.log(memeUrl);
         memeContainer.src = memeUrl;      
   }
     catch{

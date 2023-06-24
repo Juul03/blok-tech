@@ -1,5 +1,3 @@
-console.log('form is active');
-
 // Image preview code by Miguel Nunez https://medium.com/@mignunez/how-to-upload-and-preview-an-image-with-javascript-749b92711b91
 const imgInput = document.querySelector('form > div:first-of-type > input:first-of-type');
 const imgOutput = document.querySelector('form > div:first-of-type > output');
@@ -14,54 +12,31 @@ const validateHeightInput = () => {
     const validityState = input.validity;
 
     if(validityState.valueMissing) {
-        console.log('niet ingevuld hoogte');
+        //Hoogte is niet ingevuld
         input.setCustomValidity("Please fill in the height of your plant");
     } else if(validityState.badInput) {
-        console.log('pls enter number, no letters');
+        //Onjuiste invoer value
+        input.setCustomValidity("pls enter number, no letters");
     } else {
         input.setCustomValidity("");
-        console.log('niks aan de hand');
     }
 
     input.reportValidity();
 }
 
-//Input checkt elke keer als er wat verandert in het input veld, Change checkt elke keer als er er niet meer gefocused wordt op de input
-heightInput.addEventListener('input', validateHeightInput);
-//Ook valideren als het formulier gesubmit wordt
+heightInput.addEventListener('input', validateHeightInput);t
 submitButton.addEventListener('click', validateHeightInput)
-
-// function validate(heightInput) {
-//     const input = document.getElementById(inputID);
-//     const validityState = input.validity;
-  
-//     if (validityState.valueMissing) {
-//       input.setCustomValidity("You gotta fill this out, yo!");
-//     } else if (validityState.rangeUnderflow) {
-//       input.setCustomValidity("We need a higher number!");
-//     } else if (validityState.rangeOverflow) {
-//       input.setCustomValidity("Thats too high!");
-//     } else {
-//       input.setCustomValidity("");
-//     }
-  
-//     input.reportValidity();
-// }
 
 //form input field appear
 const checkboxCustomSoil= document.querySelector('#else')
 const inputfieldCustomSoil = document.querySelector('fieldset input[type=text]');
 
-console.log(checkboxCustomSoil.checked);
-
 inputfieldCustomSoil.classList.add('hidden');
 
 const inputFieldAppear = () => {
     if(checkboxCustomSoil.checked) {
-        console.log('it is checked');
         inputfieldCustomSoil.classList.remove('hidden');
     } else {
-        console.log('it is not checked');
         inputfieldCustomSoil.classList.add('hidden');
     }
 }
