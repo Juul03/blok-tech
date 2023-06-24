@@ -68,10 +68,23 @@ try{
   }
 })
 
-app.get('/upload', (req, res) => {
-  res.render('upload', {
-    title: 'upload'
-  })
+app.get('/upload', async(req, res) => {
+
+  try {
+    const plantCollection = client
+    .db('plantparents')
+    .collection('plantscollection')
+
+    const plantTypes = await plantCollection.find({}, { "planttype": 1, "_id": 0 }).toArray();
+    const plantTypesArray = plantTypes.map(item => item.planttype);
+
+    res.render('upload', {
+      plantTypes: plantTypesArray,
+      title: 'upload'
+    })
+  } catch (error) {
+    console.error('Something went wrong with retrieving data from the database', error);
+  }
 })
 
 app.get('/feed', async (req, res) => {

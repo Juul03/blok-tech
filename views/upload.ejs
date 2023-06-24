@@ -15,7 +15,12 @@
             </div>
 
             <label for="planttype">Plant type<span class="required">*</span></label>
-            <input type="text" name="planttype" id="planttype" required>
+            <input type="text" name="planttype" list="plant-options" id="planttype" required>
+            <datalist id="plant-options">
+                <% plantTypes.forEach(plant => { %>
+                    <option value="<%= plant %>"><%= plant %></option>
+                <% }) %>
+            </datalist>
 
             <label for="plantheight">Height<span class="required">*</span></label>
             <input type="number" name="plantheight" id="plantheight" required><span  class="unit-type">cm</span>
