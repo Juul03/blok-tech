@@ -24,7 +24,7 @@ const validateHeightInput = () => {
     input.reportValidity();
 }
 
-heightInput.addEventListener('input', validateHeightInput);t
+heightInput.addEventListener('input', validateHeightInput);
 submitButton.addEventListener('click', validateHeightInput)
 
 //form input field appear
