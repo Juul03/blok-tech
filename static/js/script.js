@@ -10,6 +10,7 @@ const fetchData = async () => {
   }
     catch (error){
       console.error("An error occurred while fetching data:", error);
+      quoteContainer.innerHTML = "Plants are nature's poetry, gracefully painting our world with vibrant hues, breathing life into spaces, and reminding us of the beauty and resilience that can flourish in even the most challenging environments"
     }
   }
 
